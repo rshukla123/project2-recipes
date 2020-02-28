@@ -1,19 +1,38 @@
+import sys
 import requests
+import nltk
+import itertools
+from nltk.tokenize import TweetTokenizer
+from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
+from string import punctuation
 
-def main(url):
+
+def get_recipe_data(url):
+	sw = set(stopwords.words('english'))
+	punc = [p for p in punctuation]
 	r = requests.get(url)
 	soup = BeautifulSoup(r.text, 'html.parser')
 
-	raw_directions = [span.text for span in soup.find('ol', {'class': 'recipe-directions__list'}).find_all('span', 'recipe-directions__list--item')]
-	directions = []
+	recipe_data = {
+		'raw_ingredients': [],
+		'directions': []
+	}
+
+	try:
+		raw_directions = [span.text for span in soup.find('ul', {'class': 'instructions-section'}).find_all('p')]
+	except AttributeError:
+		raw_directions = [span.text for span in soup.find('ol', {'class': 'recipe-directions__list'}).find_all('span', {'class': 'recipe-directions__list--item'})]
 
 	for d in raw_directions:
 		i = len(d) - 1
 		while i >= 0 and d[i] in [' ', '\\', 'n']:
 			i -= 1
-		directions.append(d[:i])
 
-	return directions
+		recipe_data['directions'].append(
+			[tkn.lower() for tkn in TweetTokenizer().tokenize(d[:i])
+				if not any([tkn.lower() in words for words in [sw, punctuation]])
+			]
+		)
 
-main('https://www.allrecipes.com/recipe/218068/smoky-grilled-pork-chops/')
+	return recipe_data

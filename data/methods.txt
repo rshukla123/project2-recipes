@@ -1,0 +1,12 @@
+grill
+bake
+saute
+roast
+fry
+steam
+boil
+braise
+sear
+broil
+smoke
+microwave
