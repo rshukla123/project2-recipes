@@ -11,7 +11,6 @@
   },
   "boil": {
     "synonyms": [
-      "simmer",
       "bubble"
     ],
     "tools": [
@@ -28,7 +27,8 @@
   },
   "saute": {
     "synonyms": [
-      "sear"
+      "sear",
+      "sautee"
     ],
     "tools": [
       "skillet"
@@ -37,10 +37,27 @@
   "cut": {
     "synonyms": [
       "slice",
-      "chop"
+      "chop",
+      "dice"
     ],
     "tools": [
       "knife"
+    ]
+  },
+  "fry": {
+    "synonyms": [
+
+    ],
+    "tools": [
+      "fryer"
+    ]
+  },
+  "steam": {
+    "synonyms": [
+
+    ],
+    "tools": [
+      "steamer"
     ]
   }
 }

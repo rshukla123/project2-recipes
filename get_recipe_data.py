@@ -29,10 +29,6 @@ def get_recipe_data(url):
 		while i >= 0 and d[i] in [' ', '\\', 'n']:
 			i -= 1
 
-		recipe_data['directions'].append(
-			[tkn.lower() for tkn in TweetTokenizer().tokenize(d[:i])
-				if not any([tkn.lower() in words for words in [sw, punctuation]])
-			]
-		)
+		recipe_data['directions'].append(d[:i])
 
 	return recipe_data

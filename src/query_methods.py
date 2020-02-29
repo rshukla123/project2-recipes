@@ -1,7 +1,12 @@
 import sys
-import nltk
 import json
 import itertools
+from string import punctuation
+
+import nltk
+from nltk.corpus import stopwords as sw
+
+from src.helpers import *
 
 def get_verb_vars(v):
 	return [
@@ -10,12 +15,6 @@ def get_verb_vars(v):
 		v + 'ed',
 		v + 'd',
 		v + 's'
-	]
-
-def get_noun_vars(n):
-	return [
-		n + 'er',
-		n + 'r'
 	]
 
 def method_check(word, method, method_info):
@@ -27,11 +26,7 @@ def method_check(word, method, method_info):
 			word in get_verb_vars(syn)
 			for syn in method_info['synonyms']
 		]) or
-		any([
-			word == tool or
-			word in get_noun_vars(tool)
-			for tool in method_info['tools']
-		])
+		word in method_info['tools']
 	)
 
 def query_methods(directions):
@@ -39,8 +34,9 @@ def query_methods(directions):
 		method_data = json.load(f)
 	f.close()
 
-	raw_jumble = list(itertools.chain.from_iterable(directions))
-	jumble = [j for j in raw_jumble if j.isalpha() and len(j) > 1]
+	sws = [p for p in punctuation] + sw.words('english')
+
+	jumble = [j for j in ' '.join(clean_string(directions, sws)).split() if j.isalpha() and len(j) > 1]
 
 	counter = {}
 	for word in jumble:
