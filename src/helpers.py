@@ -12,7 +12,6 @@ def tokenize_string(s):
 
 
 def unibigrams(input_list):
-	
 	tokenized = []
 	uni = []
 	bi = []
