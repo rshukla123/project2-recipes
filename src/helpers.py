@@ -1,4 +1,5 @@
 from nltk import TweetTokenizer as tokenizer
+from nltk.tokenize import word_tokenize
 
 def get_ngrams(n, s):
 	return [' '.join(s[i:i+n]) for i in range(len(s) - n + 1)]
