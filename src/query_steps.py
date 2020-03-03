@@ -1,8 +1,9 @@
 import json
+from nltk.tokenize import word_tokenize
 
 def query_steps(ingredients, directions, tools, methods):
-	print(methods)
-	time_units = {'second', 'sec', 'minute', 'min', 'hour', 'hr'}
+	time_units = ['second', 'seconds', 'minute', 'minutes', 'hour', 'hours', 'hr', 'hrs']
+	ingredient_names = [i['name'] for i in ingredients]
 
 	with open('data/methods.json', 'r') as f:
 		all_methods = json.load(f)
@@ -10,24 +11,34 @@ def query_steps(ingredients, directions, tools, methods):
 	steps = []
 
 	for direc in directions:
+		tkn_direc = [tkn.lower() for tkn in word_tokenize(direc)]
 		step = {}
 
-		step['time'] = 0
-		has_time = set(direc).intersection(time_units)
-		if has_time:
-			time_index = direc.index(has_time[0])
-			if time_index > 0 and direc[time_index - 1].isnumeric():
-				step['time'] = {
-					'duration': direc[time_index - 1],
-					'unit': direc[time_index]
-				}
+		time_index = -1
+		for unit in time_units:
+			if unit in tkn_direc:
+				time_index = tkn_direc.index(unit)
 
-		step['tools'] = set(tools).intersection(set(direc))
-		# step['ingredients'] = set([i['name'] for i in ingredients]).intersection(set(direc))
+		if time_index >= 0:
+			if time_index > 0 and tkn_direc[time_index - 1].isnumeric():
+				step['time'] = {
+					'duration': tkn_direc[time_index - 1],
+					'unit': tkn_direc[time_index]
+				}
+		else:
+			step['time'] = 0
+
+		step['tools'] = [tool for tool in tools if tool in direc]
+		step['ingredients'] = []
+		for w in tkn_direc:
+			if any([w in i.split(' ') for i in ingredient_names]):
+				step['ingredients'].append(w)
+		step['ingredients'] = list(set(step['ingredients']))
+
 		step['methods'] = [
-			m for m in all_methods
-			if m in direc or
-				any([syn in direc for syn in all_methods[m]['synonyms']])
+			m for m in methods
+			if m in tkn_direc or
+				any([syn in tkn_direc for syn in all_methods[m]['synonyms']])
 		]
 
 		steps.append(step)

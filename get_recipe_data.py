@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from string import punctuation
 
 def get_recipe_data(url):
-	sw = set(stopwords.words('english'))
+	sw = stopwords.words('english')
 	punc = [p for p in punctuation]
 	r = requests.get(url)
 	soup = BeautifulSoup(r.text, 'html.parser')

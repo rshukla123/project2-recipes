@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e20f4f7e-c936-460d-b631-2c2541033cbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/parse_ingredients.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/methods.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/methods.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/driver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_recipe_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_recipe_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parse_ingredients.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parse_ingredients.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/query_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/query_steps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/query_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/query_tools.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,15 +19,15 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project2_Recipes$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1582933064159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Project2_Recipes$get_recipe_data.coverage" NAME="get_recipe_data Coverage Results" MODIFIED="1582146696036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Project2_Recipes$driver.coverage" NAME="driver Coverage Results" MODIFIED="1583265263035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project2_Recipes$driver.coverage" NAME="driver Coverage Results" MODIFIED="1583267047095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/driver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="289">
+              <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
               </folding>
@@ -35,10 +36,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/general_tools.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/query_steps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="12" column="27" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/query_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="1190">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -49,13 +71,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parse_ingredients.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            <state relative-caret-position="459">
+              <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
               <folding>
-                <element signature="e#0#6#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
                 <element signature="e#828#1133#0" />
-                <element signature="e#1141#1656#0" />
                 <element signature="e#1681#1825#0" />
+                <element signature="e#1859#2492#0" />
               </folding>
             </state>
           </provider>
@@ -64,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nlp_ingreds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="103" column="4" lean-forward="true" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+            <state relative-caret-position="459">
+              <caret line="123" column="32" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="32" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#1311#1689#0" />
@@ -75,10 +97,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/methods.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+              <folding>
+                <element signature="n#!!block;n#bake#0;n#!!top" />
+                <element signature="n#!!block;n#boil#0;n#!!top" />
+                <element signature="n#!!block;n#braise#0;n#!!top" />
+                <element signature="n#!!block;n#saute#0;n#!!top" />
+                <element signature="n#!!block;n#fry#0;n#!!top" />
+                <element signature="n#!!block;n#steam#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/get_recipe_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="170">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -140,18 +179,18 @@
         <option value="$PROJECT_DIR$/shit.py" />
         <option value="$PROJECT_DIR$/data/methods.txt" />
         <option value="$PROJECT_DIR$/src/change_health.py" />
-        <option value="$PROJECT_DIR$/data/methods.json" />
         <option value="$PROJECT_DIR$/src/query_methods.py" />
         <option value="$PROJECT_DIR$/data/healthy.json" />
         <option value="$PROJECT_DIR$/src/to_indian.py" />
         <option value="$PROJECT_DIR$/src/tools.py" />
         <option value="$PROJECT_DIR$/data/general_tools.txt" />
-        <option value="$PROJECT_DIR$/src/query_tools.py" />
-        <option value="$PROJECT_DIR$/src/query_steps.py" />
-        <option value="$PROJECT_DIR$/get_recipe_data.py" />
         <option value="$PROJECT_DIR$/src/helpers.py" />
-        <option value="$PROJECT_DIR$/src/parse_ingredients.py" />
+        <option value="$PROJECT_DIR$/src/query_tools.py" />
         <option value="$PROJECT_DIR$/driver.py" />
+        <option value="$PROJECT_DIR$/data/methods.json" />
+        <option value="$PROJECT_DIR$/get_recipe_data.py" />
+        <option value="$PROJECT_DIR$/src/parse_ingredients.py" />
+        <option value="$PROJECT_DIR$/src/query_steps.py" />
       </list>
     </option>
   </component>
@@ -297,12 +336,12 @@
       <updated>1582145674727</updated>
       <workItem from="1582145681476" duration="4760000" />
       <workItem from="1582752009575" duration="16809000" />
-      <workItem from="1583175151484" duration="8730000" />
+      <workItem from="1583175151484" duration="12036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30299000" />
+    <option name="totallyTimeSpent" value="33605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
@@ -391,29 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/methods.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#bake#0;n#!!top" />
-            <element signature="n#!!block;n#boil#0;n#!!top" />
-            <element signature="n#!!block;n#braise#0;n#!!top" />
-            <element signature="n#!!block;n#saute#0;n#!!top" />
-            <element signature="n#!!block;n#cut#0;n#!!top" />
-            <element signature="n#!!block;n#fry#0;n#!!top" />
-            <element signature="n#!!block;n#steam#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/general_tools.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/query_methods.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -424,29 +440,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/query_steps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/supplemental_project2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/get_recipe_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -466,10 +465,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/nlp_ingreds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="123" column="32" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1311#1689#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/methods.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!block;n#bake#0;n#!!top" />
+            <element signature="n#!!block;n#boil#0;n#!!top" />
+            <element signature="n#!!block;n#braise#0;n#!!top" />
+            <element signature="n#!!block;n#saute#0;n#!!top" />
+            <element signature="n#!!block;n#fry#0;n#!!top" />
+            <element signature="n#!!block;n#steam#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_recipe_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/query_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="1190">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -478,34 +513,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parse_ingredients.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        <state relative-caret-position="459">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding>
-            <element signature="e#0#6#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
             <element signature="e#828#1133#0" />
-            <element signature="e#1141#1656#0" />
             <element signature="e#1681#1825#0" />
+            <element signature="e#1859#2492#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nlp_ingreds.py">
+    <entry file="file://$PROJECT_DIR$/data/general_tools.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="103" column="4" lean-forward="true" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#1311#1689#0" />
-          </folding>
+        <state relative-caret-position="87">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/driver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="289">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/query_steps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

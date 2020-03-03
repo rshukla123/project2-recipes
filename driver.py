@@ -18,9 +18,9 @@ def main():
 
 	ingredients = parse_ingredients(recipe_data['ingredients'])
 	methods = query_methods(recipe_data['directions'])
-	# tools = query_tools(recipe_data['raw_ingredients'], recipe_data['directions'])
+	tools = query_tools(ingredients, recipe_data['directions'])
 
-	steps = query_steps([], recipe_data['directions'], [], methods['methods'])
+	steps = query_steps(ingredients, recipe_data['directions'], tools, methods['methods'])
 	for s in steps:
 		print(s)
 
@@ -33,10 +33,10 @@ def main():
 		'>> ')
 
 	if transform == '1':
-		healthier = change_health(True, recipe_data['raw_ingredients'], recipe_data['directions'])
+		healthier = change_health(True, recipe_data['ingredients'], recipe_data['directions'])
 		print(healthier)
 	elif transform == '2':
-		unhealthier = change_health(False, recipe_data['raw_ingredients'], recipe_data['directions'])
+		unhealthier = change_health(False, recipe_data['ingredients'], recipe_data['directions'])
 		print(unhealthier)
 	elif transform == '5':
 		indian = to_indian()

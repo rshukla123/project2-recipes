@@ -1,9 +1,13 @@
+import re
 import nltk
 from nltk.tokenize import TweetTokenizer as tokenizer
+from nltk.corpus import stopwords
 
 from src.helpers import *
 
 def parse_ingredients(ingredients):
+	sw = set(stopwords.words('english'))
+
 	parsed_ingredients = []
 	for i in ingredients:
 		tknzd = tokenizer().tokenize(i)
@@ -18,6 +22,8 @@ def parse_ingredients(ingredients):
 		measurement = get_measurement(i)
 
 		name = get_name(i, measurement)
+		if not name:
+			continue
 		pos = nltk.pos_tag(name.split())
 		nom = []
 		for k in pos:
@@ -29,14 +35,15 @@ def parse_ingredients(ingredients):
 				nom.append(k[0])
 		n = ''
 		for j in nom:
-			n = n + j + ' '
+			if j not in sw:
+				n = n + j + ' '
 
 		pos = get_descriptor(name)
 
 		prep = get_prep(name, i, measurement)
 
 		parsed_ingredients.append({
-			'name': str(n),
+			'name': str(n.strip(' ')),
 			'quantity': str(quantity),
 			'measurement': str(measurement),
 			'descriptor': pos,
@@ -54,22 +61,23 @@ def get_measurement(ingred):
                 return w
 
 def get_name(ingred, m):
-    try:
-        n = re.search(r'\d+', ingred).group()
-        if (m and m != 'Not found' and m != 'None'):
-            rest = ingred.split(m)[1]
-            if ',' in rest:
-                return rest.split(',')[0].lower()
-            else:
-                return rest.lower()
-        else:
-            rest = ingred.split(n)[1]
-            if ',' in rest:
-                return rest.split(',')[0].lower()
-            else:
-                return rest
-    except:
-        return ingred
+	try:
+		n = re.search(r'\d+', ingred).group()
+		if (m and m != 'Not found' and m != 'None'):
+			rest = ingred.split(m)[1]
+			if ',' in rest:
+				ret = rest.split(',')[0].lower()
+			else:
+				ret = rest.lower()
+		else:
+			rest = ingred.split(n)[1]
+			if ',' in rest:
+				ret = rest.split(',')[0].lower()
+			else:
+				ret = rest
+	except:
+		ret = ingred
+	return ret
 
 def get_descriptor(name):
     descrip = []

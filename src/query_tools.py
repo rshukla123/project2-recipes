@@ -43,13 +43,13 @@ def query_tools(ingredients, directions):
             arr_tri.append(i)
     
     #get ingredient names - don't consider ingredients
-    for x in ingredients.keys():
+    for x in [i['name'] for i in ingredients]:
         ings.append(x)
     for x in nouns:
         if not x in ings:
             tools.append(x)
 
-    gen_tools = set([line.strip() for line in open('general_tools.txt')])
+    gen_tools = set([line.strip() for line in open('data/general_tools.txt')])
     ans_tools = unibigrams(gen_tools)
 
     #check to see if these nouns are in general tools list
@@ -59,11 +59,13 @@ def query_tools(ingredients, directions):
                 final_tools.append(x)
     for x in arr_bi:
         if x in ans_tools['bigrams']:
-            if not x in final_tools:
-                final_tools.append(x)
+            item = ' '.join(x)
+            if item not in final_tools:
+                final_tools.append(item)
     for x in arr_tri:
         if x in ans_tools['trigrams']:
-            if not x in final_tools:
-                final_tools.append(x)
-            
+            item = ' '.join(x)
+            if item not in final_tools:
+                final_tools.append(item)
+
     return final_tools
