@@ -1,5 +1,8 @@
+import sys
+
 from get_recipe_data import get_recipe_data
 
+from src.parse_ingredients import parse_ingredients
 from src.query_methods import query_methods
 from src.query_tools import query_tools
 from src.query_steps import query_steps
@@ -13,10 +16,11 @@ def main():
 
 	recipe_data = get_recipe_data(url)
 
+	ingredients = parse_ingredients(recipe_data['ingredients'])
 	methods = query_methods(recipe_data['directions'])
-	tools = query_tools(recipe_data['raw_ingredients'], recipe_data['directions'])
+	# tools = query_tools(recipe_data['raw_ingredients'], recipe_data['directions'])
 
-	steps = query_steps([], recipe_data['directions'], tools, methods['methods'])
+	steps = query_steps([], recipe_data['directions'], [], methods['methods'])
 	for s in steps:
 		print(s)
 

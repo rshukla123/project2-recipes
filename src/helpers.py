@@ -35,3 +35,6 @@ def unibigrams(input_list):
 	}
 
 	return results
+
+def hasNumbers(s):
+    return any(c.isdigit() for c in s)

@@ -1,6 +1,7 @@
 import json
 
 def query_steps(ingredients, directions, tools, methods):
+	print(methods)
 	time_units = {'second', 'sec', 'minute', 'min', 'hour', 'hr'}
 
 	with open('data/methods.json', 'r') as f:
@@ -31,4 +32,4 @@ def query_steps(ingredients, directions, tools, methods):
 
 		steps.append(step)
 
-	return step
+	return steps
