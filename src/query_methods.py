@@ -5,6 +5,7 @@ from string import punctuation
 
 import nltk
 from nltk.corpus import stopwords as sw
+from nltk.tokenize import TweetTokenizer as tokenizer
 
 from src.helpers import *
 
@@ -36,7 +37,9 @@ def query_methods(directions):
 
 	sws = [p for p in punctuation] + sw.words('english')
 
-	jumble = [j for j in ' '.join(clean_string(directions, sws)).split() if j.isalpha() and len(j) > 1]
+	jumble = [tkn for tkn in clean_string(tokenize_string(' '.join(directions)), sws) if tkn.isalpha() and len(tkn) > 1]
+
+	# jumble = [j for j in clean_string(' '.join(directions).split(), sws) if j.isalpha() and len(j) > 1]
 
 	counter = {}
 	for word in jumble:

@@ -1,10 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
-import re
-import nltk
-from helpers.py import unibigrams
+import random
+from src.helpers import *
 
-def toIndian(ingredients):
+def to_indian(ingredients):
 	subs = []
 	ing_spices = []
 	spices = [line.strip() for line in open('spices.txt')]
@@ -12,8 +9,8 @@ def toIndian(ingredients):
 	indian_spices = [line.strip() for line in open('indian_spices.txt')]
 	indian_sauces = [line.strip() for line in open('indian_sauces.txt')]
 	breads = [line.strip() for line in open('recipes/breads.txt')]
-    cheeses = [line.strip() for line in open('recipes/cheeses.txt')]
-    red_meats = [line.strip() for line in open('recipes/red_meats.txt')]
+	cheeses = [line.strip() for line in open('recipes/cheeses.txt')]
+	red_meats = [line.strip() for line in open('recipes/red_meats.txt')]
 	ans_spices = unibigrams(spices)
 	ans_sauces = unibigrams(sauces)
 
@@ -29,11 +26,11 @@ def toIndian(ingredients):
 				subs.append([name, random.choice(indian_spices)])
 			if name in ans_sauces['bigrams']:
 				subs.append([name, random.choice(indian_sauces)])
-          if len(name) == 3:
-               if name in ans_spices['trigrams']:
-                    subs.append([name, random.choice(indian_spices)])
-               if name in ans_sauces['trigrams']:
-                    subs.append([name, random.choice(indian_sauces)])
+			if len(name) == 3:
+				if name in ans_spices['trigrams']:
+					subs.append([name, random.choice(indian_spices)])
+				if name in ans_sauces['trigrams']:
+					subs.append([name, random.choice(indian_sauces)])
 		if x == 'rice':
 			subs.append([x,'basmati rice'])
 		if x in breads:
@@ -44,8 +41,6 @@ def toIndian(ingredients):
 			subs.append([x, 'paneer'])
 	return subs
 
-def printSubs(subs)
+def printSubs(subs):
 	for x in subs:
-    	print("Substitute " + x[0] + " with " + x[1]) 
-
-
+		print("Substitute " + x[0] + " with " + x[1])

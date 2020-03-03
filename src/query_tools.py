@@ -1,12 +1,8 @@
-from bs4 import BeautifulSoup
-import requests
-import re
 import nltk
-from cuisine_functions.py import unibigrams
+from src.helpers import unibigrams
 from nltk.tokenize import word_tokenize
 
-
-def getTools(ingredients, directions):
+def query_tools(ingredients, directions):
     tokenized = []
     pos = []
     nouns = []
@@ -17,19 +13,19 @@ def getTools(ingredients, directions):
     arr_bi = []
     arr_tri = []
 
-    #tokenize directions
+    # tokenize directions
     for x in directions:
         tokenized.append(word_tokenize(x))
-    #get pos tag and bigrams
+    # get pos tag and bigrams
     for x in tokenized:
         pos.append(nltk.pos_tag(x))
         bi.append(list(nltk.bigrams(x)))
-    #only look at nouns
+    # only look at nouns
     for x in pos:
         for y in x:
             if y[1] == 'NN':
                 nouns.append(y[0])
-    #put bigrams and trigrams in arrays instead of lists
+    # put bigrams and trigrams in arrays instead of lists
     for x in bi:
         for y in x:
            # print(y)
@@ -68,10 +64,3 @@ def getTools(ingredients, directions):
                 final_tools.append(x)
             
     return final_tools
-
-
-
-
-
-
-
