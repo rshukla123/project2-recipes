@@ -22,22 +22,22 @@ def to_indian(ingreds):
         start = len(new_dict)
         name = word_tokenize(key)
         if len(name) == 1:
-            if name[0] in ans_spices['unigrams']:
+            if key in spices:
                 new_key = key.replace(key, random.choice(indian_spices))
                 new_dict[new_key] = new_value
-            elif name in ans_sauces['unigrams']:
+            elif key in sauces:
                 new_key = key.replace(key, random.choice(indian_sauces))
                 new_dict[new_key] = new_value
-            elif name == 'rice':
+            elif key == 'rice':
                 new_key = key.replace(key, 'basmati rice')
                 new_dict[new_key] = new_value
-            elif name in breads:
+            elif key in breads:
                 new_key = key.replace(key, 'naan')
                 new_dict[new_key] = new_value
-            elif name in red_meats:
+            elif key in red_meats:
                 new_key = key.replace(key, 'chicken')
                 new_dict[new_key] = new_value
-            elif name in cheeses:
+            elif key in cheeses:
                 new_key = key.replace(key, 'paneer')
                 new_dict[new_key] = new_value
             else:
