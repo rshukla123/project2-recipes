@@ -10,6 +10,8 @@ from src.query_steps import query_steps
 from src.change_health import change_health
 from src.to_indian import to_indian
 
+from src.helpers import *
+
 def main():
 	print('Welcome to the Recipe Transformer!\n')
 	url = input('Please enter the url of a recipe:\n>> ')
@@ -23,8 +25,9 @@ def main():
 	tools = query_tools(ingredients, recipe_data['directions'])
 
 	steps = query_steps(ingredients, recipe_data['directions'], tools, methods['methods'])
+	print_recipe(steps)
 
-	transform = input('Please enter the number of your desired transformation:\n'
+	transform = input('\nPlease enter the number of your desired transformation:\n'
 		'1: Healthier\n'
 		'2: Unhealthier\n'
 		'3: Vegetarian\n'

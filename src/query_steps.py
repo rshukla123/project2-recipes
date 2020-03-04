@@ -1,9 +1,10 @@
 import json
 from nltk.tokenize import word_tokenize
 
+from src.helpers import *
+
 def query_steps(ingredients, directions, tools, methods):
 	time_units = ['second', 'seconds', 'minute', 'minutes', 'hour', 'hours', 'hr', 'hrs']
-	ingredient_names = [i['name'] for i in ingredients]
 
 	with open('data/methods.json', 'r') as f:
 		all_methods = json.load(f)
@@ -44,9 +45,11 @@ def query_steps(ingredients, directions, tools, methods):
 		step['tools'] = [tool for tool in tools if tool in direc]
 		step['ingredients'] = []
 		for w in tkn_direc:
-			if any([w in i.split(' ') for i in ingredient_names]) or w in ['meat', 'vegetables']:
-				step['ingredients'].append(w)
-		step['ingredients'] = list(set(step['ingredients']))
+			for i in ingredients:
+				if w in i['name'].split(' '):
+					step['ingredients'].append(i)
+
+		step['ingredients'] = prune_list(step['ingredients'])
 
 		step['methods'] = [
 			m for m in methods

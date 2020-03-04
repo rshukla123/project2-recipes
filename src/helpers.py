@@ -38,3 +38,36 @@ def unibigrams(input_list):
 
 def hasNumbers(s):
     return any(c.isdigit() for c in s)
+
+def print_recipe(steps):
+	for n, step in enumerate(steps, 1):
+		print('Step {}:'.format(n))
+
+		print('\tIngredients:')
+		for ingredient in step['ingredients']:
+			print('\t\t{} {} {} {}, {}'.format(
+				ingredient['quantity'],
+				ingredient['measurement'],
+				', '.join(ingredient['descriptor']),
+				ingredient['name'],
+				ingredient['preparation']
+			))
+
+		print('\tMethods:')
+		for method in step['methods']:
+			print('\t\t' + method)
+
+		print('\tTools:')
+		for tool in step['tools']:
+			print('\t\t' + tool)
+
+		if step['time']:
+			print('\tTime:')
+			print('\t\t{} {}'.format(step['time']['duration'], step['time']['unit']))
+
+def prune_list(l):
+	clean = []
+	for i in l:
+		if i not in clean:
+			clean.append(i)
+	return clean
