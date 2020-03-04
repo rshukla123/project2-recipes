@@ -20,30 +20,31 @@ def to_indian(ingreds):
     for key, value in ingreds.items():
         new_value = [value[0], value[1], value[2], value[3]]
         start = len(new_dict)
+        i = 0
         name = word_tokenize(key)
         if len(name) == 1:
-            if key in spices:
-                new_key = key.replace(key, random.choice(indian_spices))
+            if name[0] in spices:
+                new_key = key.replace(name[0], random.choice(indian_spices))
                 new_dict[new_key] = new_value
-            elif key in sauces:
-                new_key = key.replace(key, random.choice(indian_sauces))
+            elif name[0] in sauces:
+                new_key = key.replace(name[0], random.choice(indian_sauces))
                 new_dict[new_key] = new_value
             elif key == 'rice':
                 new_key = key.replace(key, 'basmati rice')
                 new_dict[new_key] = new_value
-            elif key in breads:
-                new_key = key.replace(key, 'naan')
+            elif name[0] in breads:
+                new_key = key.replace(name[0], 'naan')
                 new_dict[new_key] = new_value
-            elif key in red_meats:
-                new_key = key.replace(key, 'chicken')
+            elif name[0] in red_meats:
+                new_key = key.replace(name[0], 'chicken')
                 new_dict[new_key] = new_value
-            elif key in cheeses:
-                new_key = key.replace(key, 'paneer')
+            elif name[0] in cheeses:
+                new_key = key.replace(name[0], 'paneer')
                 new_dict[new_key] = new_value
             else:
                 new_dict[key] = value
 
-        if len(name) == 2:
+        elif len(name) == 2:
             if name in ans_spices['bigrams']:
                 new_key = key.replace(key, random.choice(indian_spices))
                 new_dict[new_key] = new_value
@@ -61,7 +62,8 @@ def to_indian(ingreds):
                 new_dict[new_key] = new_value
             else:
                 new_dict[key] = value
-        if len(name) == 3:
+                
+        elif len(name) == 3:
             if name in ans_spices['trigrams']:
                 new_key = key.replace(key, random.choice(indian_spices))
                 new_dict[new_key] = new_value
@@ -79,5 +81,8 @@ def to_indian(ingreds):
                 new_dict[new_key] = new_value
             else:
                 new_dict[key] = value
+        else:
+            new_dict[key] = value
+            
     return new_dict
 
