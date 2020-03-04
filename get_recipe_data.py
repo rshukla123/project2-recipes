@@ -14,6 +14,7 @@ def get_recipe_data(url):
 	soup = BeautifulSoup(r.text, 'html.parser')
 
 	recipe_data = {
+		'title': soup.find('h1', {'class': 'recipe-summary__h1'}).text,
 		'ingredients': [],
 		'directions': []
 	}

@@ -12,6 +12,19 @@ def query_steps(ingredients, directions, tools, methods):
 
 	for direc in directions:
 		tkn_direc = [tkn.lower() for tkn in word_tokenize(direc)]
+
+		if 'preheat' in tkn_direc:
+			for tkn in tkn_direc:
+				if tkn.isnumeric():
+					steps.append({
+						'time': 0,
+						'tools': ['oven'],
+						'ingredients': [],
+						'methods': ['preheat to ' + tkn]
+					})
+					break
+			continue
+
 		step = {}
 
 		time_index = -1
@@ -31,7 +44,7 @@ def query_steps(ingredients, directions, tools, methods):
 		step['tools'] = [tool for tool in tools if tool in direc]
 		step['ingredients'] = []
 		for w in tkn_direc:
-			if any([w in i.split(' ') for i in ingredient_names]):
+			if any([w in i.split(' ') for i in ingredient_names]) or w in ['meat', 'vegetables']:
 				step['ingredients'].append(w)
 		step['ingredients'] = list(set(step['ingredients']))
 

@@ -85,4 +85,3 @@ def to_indian(ingreds):
             new_dict[key] = value
             
     return new_dict
-

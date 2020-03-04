@@ -32,7 +32,8 @@
       "cook"
     ],
     "tools": [
-      "skillet"
+      "skillet",
+      "pan"
     ]
   },
   "cut": {
@@ -60,6 +61,14 @@
     ],
     "tools": [
       "steamer"
+    ]
+  },
+  "mix": {
+    "synonyms": [
+      "toss"
+    ],
+    "tools": [
+
     ]
   }
 }

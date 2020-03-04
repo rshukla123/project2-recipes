@@ -11,6 +11,7 @@ def parse_ingredients(ingredients):
 	parsed_ingredients = []
 	for i in ingredients:
 		tknzd = tokenizer().tokenize(i)
+
 		if '/' in tknzd[1]:
 			quantity = tknzd[0] + ' ' + tknzd[1]
 
@@ -19,7 +20,7 @@ def parse_ingredients(ingredients):
 		else:
 			quantity = tknzd[1]
 
-		measurement = get_measurement(i)
+		measurement = get_measurement(tknzd, quantity)
 
 		name = get_name(i, measurement)
 		if not name:
@@ -52,18 +53,21 @@ def parse_ingredients(ingredients):
 
 	return parsed_ingredients
 
-def get_measurement(ingred):
-    units = ['package', 'slice', 'container', 'litre', 'gallon', 'quart', 'stalk', 'cup', 'pint', 'jar', 'can', 'clove', 'ounce', 'spoon', 'gram', 'pound', 'pinch']
-    t = tokenizer().tokenize(ingred)
-    for u in units:
-        for w in t:
-            if u in w:
-                return w
+def get_measurement(ingred, quantity):
+	quanity_index = ingred.index(quantity)
+	if quanity_index == len(ingred) - 1:
+		return
+
+	units = ['package', 'slice', 'container', 'litre', 'gallon', 'quart', 'stalk', 'cup', 'pint', 'jar', 'can', 'clove', 'ounce', 'spoon', 'gram', 'pound', 'pinch', 'teaspoon', 'tablespoon', 'tsp', 'tbsp']
+
+	for unit in units:
+		if unit in ingred[quanity_index + 1]:
+			return ingred[quanity_index + 1]
 
 def get_name(ingred, m):
 	try:
 		n = re.search(r'\d+', ingred).group()
-		if (m and m != 'Not found' and m != 'None'):
+		if m:
 			rest = ingred.split(m)[1]
 			if ',' in rest:
 				ret = rest.split(',')[0].lower()
